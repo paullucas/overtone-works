@@ -3,10 +3,13 @@
 (defn get-sample [path]
   (sample (str sample-path path ".wav")))
 
-(def one (get-sample "1"))
-(def two (get-sample "2"))
-(def three (get-sample "3"))
-(def four (get-sample "4"))
+(do 
+  (def one (get-sample "1"))
+  (def two (get-sample "2"))
+  (def three (get-sample "3"))
+  (def four (get-sample "4"))
+)
+
 
 (definst wrpr [buf 0 pointer 0 amp 1 att 15 mix 1 room 1 damp 1 gate 1 freq-scale 1 window-size 0.1 envbufnum -1 overlaps 1 interp 4]
  (let [src(* (free-verb :in (warp1 :num-channels 1 :bufnum buf :pointer pointer :freq-scale freq-scale :window-size window-size 
