@@ -36,8 +36,8 @@
     (let [src(* (free-verb :in (lpf :in (warp1 :num-channels 1 :bufnum buf :pointer (+ 0.4 (* 0.1 (sin-osc:kr pointer))) :freq-scale freq-scale :window-size window-size
                                                :envbufnum envbufnum :overlaps overlaps :window-rand-ratio 0.0 :interp interp) :freq lff) :mix mix :room room :damp damp)
                 (env-gen (asr :attack att :curve 1 :release 40) :gate gate :action FREE))]
-      (* src amp)))
-)
+      (* src amp))))
+
 
 (wrplf one :pointer 0.83 :freq-scale 0.4 :window-size 14 :amp 1.5 :lff 3000)                       ;;54
 (wrprlf two :pointer 0.1 :freq-scale 0.8 :window-size 8 :amp 1.1 :lff 5000)                        ;;55
