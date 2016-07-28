@@ -1,4 +1,4 @@
-# Overtone Compositions
+# Overtone Works
 
 ## Compositions
 1.clj - Unreleased
@@ -8,8 +8,9 @@
 4.clj - Unreleased
 <br>
 5.clj - Unreleased
-<br>
-6.clj - Unreleased
+
+## Sets
+6.clj
 
 ## Functions
 7.clj - get-samples, gen-inst
