@@ -2,7 +2,7 @@
 
 (defn get-samples [folder-path filenames]
   (doseq [filename filenames]
-    (def filename (load-sample (str folder-path filename ".wav")))))
+    (intern *ns* (symbol filename) (load-sample (str folder-path filename ".wav")))))
 
 (get-samples "~/Producing/july3rd-2016/samples/" ["1" "2" "3"])
 
@@ -71,4 +71,4 @@
      (let [src# (* (gen-ugens ~ugens) (env-gen (asr :attack ~'att :curve 1 :release 40) :gate ~'gate :action FREE))]
        (* src# ~'amp))))
 
-;; 
+;;
