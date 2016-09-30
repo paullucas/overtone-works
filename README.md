@@ -1,19 +1,19 @@
 # Overtone Works
 
 ## Compositions
-1.clj - Unreleased
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/1.clj">1.clj</a> - Unreleased
 <br>
-3.clj - Unreleased
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/3.clj">3.clj</a> - Unreleased
 <br>
-4.clj - Unreleased
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/4.clj">4.clj</a> - Unreleased
 <br>
-5.clj - Unreleased
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/5.clj">5.clj</a> - Unreleased
 
 ## Sets
-6.clj
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/6.clj">6.clj</a>
 
 ## Functions
-7.clj - get-samples, gen-inst
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/7.clj">7.clj</a> - get-samples, gen-inst
 
 ## Misc
-2.clj - Testing warp1 ugen
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/2.clj">2.clj</a> - Testing warp1 ugen
