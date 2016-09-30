@@ -19,3 +19,24 @@
 
 ## Misc
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/2.clj">2.clj</a> - Testing warp1 ugen
+
+# Quick Start
+Clone repository:
+<br>
+```git clone https://github.com/paullucas/overtone-works```
+<br>
+Change current directory:
+<br>
+```cd overtone-works```
+<br>
+Install dependencies:
+<br>
+```lein deps```
+<br>
+Start REPL:
+<br>
+```lein repl```
+<br>
+Start Overtone:
+<br>
+```(use 'overtone.live)```
