@@ -8,6 +8,8 @@
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/4.clj">4.clj</a> - Unreleased
 <br>
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/5.clj">5.clj</a> - Unreleased
+<br>
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/8.clj">8.clj</a> - Unreleased
 
 ## Sets
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/overtone/6.clj">6.clj</a>
