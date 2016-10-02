@@ -1,34 +1,29 @@
-(def sample-path "~/Producing/April5th-2016/samples/")
-(defn get-sample [path]
-  (sample (str sample-path path ".wav")))
-(def one (get-sample "1"))
-(def two (get-sample "2"))
+(ns otworks.c1
+  (:use overtone.live)
+  (:require [otworks.functions :refer [get-samples gen-inst]]))
 
-(definst pbv [buf 0 rate 1 amp 1 att 10 mix 1 room 1 damp 1 gate 1]
-  (let [src(* (free-verb :in (play-buf :num-channels 1 :bufnum buf :rate rate :trigger 1.0 :start-pos 0.0 :loop 1.0 :action 1) :mix mix :room room :damp damp)
-              (env-gen (asr :attack att :curve 1 :release 20) :gate gate :action FREE))]
-    (* src amp)))
+(get-samples "~/Producing/April5th-2016/samples/" ["s1" "s2"])
+(gen-inst "pbv" ["free-verb" "play-buf"])
 
-(pbv one :amp 1.0) ;;38
-(pbv one :rate 0.5 :amp 1.5 :attack 15 :release 40) ;;39
-(ctl 38 :rate 0.8)
-(ctl 38 :rate 0.4)
-(pbv two :rate 1.2 :amp 2) ;;40
-(ctl 39 :rate 0.6)
-(ctl 38 :rate 0.8)
-(ctl 40 :rate 1.8)
-(ctl 39 :rate 0.4)
-(ctl 40 :rate 1.775)
-(ctl 38 :rate 22.8)
-(ctl 38 :rate 45.6)
-(ctl 38 :rate 3.2)
-(ctl 38 :rate 1.6)
-(ctl 38 :rate 0.4)
-(ctl 40 :rate 1.8)
-(ctl 40 :gate 0)
-(ctl 38 :gate 0)
-(ctl 39 :gate 0)
+(def pbv1 (pbv one :amp 1.0 :att 10 :rel 20))
+(def pbv2 (pbv one :rate 0.5 :amp 1.5 :att 15 :rel 20))
+(ctl pbv1 :rate 0.8)
+(ctl pbv1 :rate 0.4)
+(def pbv3 (pbv two :rate 1.2 :amp 2 :att 10 :rel 20))
+(ctl pbv2 :rate 0.6)
+(ctl pbv1 :rate 0.8)
+(ctl pbv3 :rate 1.8)
+(ctl pbv2 :rate 0.4)
+(ctl pbv3 :rate 1.775)
+(ctl pbv1 :rate 22.8)
+(ctl pbv1 :rate 45.6)
+(ctl pbv1 :rate 3.2)
+(ctl pbv1 :rate 1.6)
+(ctl pbv1 :rate 0.4)
+(ctl pbv3 :rate 1.8)
+(ctl pbv3 :gate 0)
+(ctl pbv1 :gate 0)
+(ctl pbv2 :gate 0)
 
 (stop)
-
 (pp-node-tree)
