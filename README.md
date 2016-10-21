@@ -14,6 +14,9 @@
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c7.clj">c7.clj</a> - Unreleased
 <br>
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c8.clj">c8.clj</a> - Unreleased
+<br>
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c9.clj">c9.clj</a> - Unreleased
+(<a href="https://github.com/paullucas/supercollider-works/blob/master/synthdef/1.scd">1.scd</a> rewrite)
 
 ## Sets
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c5.clj">c5.clj</a>
