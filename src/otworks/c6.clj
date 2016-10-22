@@ -51,3 +51,5 @@
 (ctl s2-smplr2 :freq-scale 0.42 :window-size 0.04)
 (ctl s2-smplr2 :gate 0)
 (ctl s2-smplr :gate 0)
+
+(stop)

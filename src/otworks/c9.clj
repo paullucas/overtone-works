@@ -36,3 +36,5 @@
 (ctl b :gate 0)
 (ctl c :gate 0)
 (ctl a :gate 0)
+
+(stop)
