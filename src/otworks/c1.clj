@@ -2,7 +2,9 @@
   (:use overtone.live)
   (:require [otworks.functions :refer [get-samples gen-inst]]))
 
-(get-samples "~/Producing/April5th-2016/samples/" ["s1" "s2"])
+(get-samples "~/Producing/April5th-2016/samples/"
+             (mapv #(str "s" %) (range 1 3)))
+
 (gen-inst "pbv" ["free-verb" "play-buf"])
 
 (def pbv1 (pbv one :amp 1.0 :att 10 :rel 20))

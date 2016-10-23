@@ -8,8 +8,10 @@
 (gen-inst "wrprlf" ["free-verb" "lpf" "warp1"])
 (gen-inst "wrprlfo" ["free-verb" "lpf" "warp1-lfo"])
 
-(get-samples "~/Producing/july3rd-2016/samples/" ["smp1" "smp2" "smp3" "smp4"])
-(get-samples "~/Producing/june17th-2016/" ["s1" "s2" "s3"])
+(get-samples "~/Producing/july3rd-2016/samples/"
+             (mapv #(str "smp" %) (range 1 5)))
+(get-samples "~/Producing/june17th-2016/"
+             (mapv #(str "s" %) (range 1 4)))
 
 (def wrplf1 (wrplf smp1 :pointer 0.83 :freq-scale 0.4 :window-size 14 :amp 1.5 :lff 3000))
 (def wrplf2 (wrprlf smp2 :pointer 0.1 :freq-scale 0.8 :window-size 8 :amp 1.1 :lff 5000))

@@ -5,7 +5,8 @@
 (gen-inst "wrpr" ["free-verb" "warp1"])
 (gen-inst "wrplf" ["lpf" "warp1"])
 
-(get-samples "~/Producing/june13th-2016/" ["spl1" "spl2" "spl3" "spl4"])
+(get-samples "~/Producing/june13th-2016/"
+             (mapv #(str "spl" %) (range 1 5)))
 
 (def wrpr1 (wrpr spl1 :pointer 0.83 :freq-scale 0.4 :window-size 10.0 :amp 1.5))
 (def wrplf1 (wrplf spl3 :lff 1000 :pointer 0.23 :freq-scale 0.8 :window-size 16.0 :amp 1.8))

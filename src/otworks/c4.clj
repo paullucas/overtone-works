@@ -2,7 +2,8 @@
   (:use overtone.live)
   (:require [otworks.functions :refer [get-samples gen-inst]]))
 
-(get-samples "~/Producing/july3rd-2016/samples/" ["smp1" "smp2" "smp3" "smp4"])
+(get-samples "~/Producing/july3rd-2016/samples/"
+             (mapv #(str "smp" %) (range 1 5)))
 
 (gen-inst "wrphf" ["hpf" "warp1"])
 (gen-inst "wrplf" ["lpf" "warp1"])

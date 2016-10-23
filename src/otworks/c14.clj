@@ -2,7 +2,8 @@
   (:use overtone.live)
   (:require [otworks.functions :refer [get-samples]]))
 
-(get-samples "~/Producing/october20th-2016/sc8/" ["s15" "s16" "s17"])
+(get-samples "~/Producing/october20th-2016/sc8/"
+             (mapv #(str "s" %) (range 15 18)))
 
 (definst pbuf [buf 0 start-pos 0.0 rate 1 amp 1 att 10 rel 40 gate 1 loop 1]
   (->

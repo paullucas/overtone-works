@@ -2,7 +2,8 @@
   (:use overtone.live)
   (:require [otworks.functions :refer [get-samples gen-inst]]))
 
-(get-samples "~/Producing/july23rd-2016/smpls/" ["s1" "s2" "s3" "s4" "s5" "s6" "s7"])
+(get-samples "~/Producing/july23rd-2016/smpls/"
+             (mapv #(str "s" %) (range 1 8)))
 
 (gen-inst "tri" ["free-verb" "lf-tri"])
 (gen-inst "smplr" ["free-verb" "lpf" "warp1-lfo"])

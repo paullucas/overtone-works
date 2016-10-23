@@ -6,7 +6,8 @@
             [leipzig.live :as live]
             [leipzig.scale :as scale]))
 
-(get-samples "~/Producing/october2nd-2016/" ["s1n" "s2n" "s3n" "s4n"])
+(get-samples "~/Producing/october2nd-2016/"
+             (mapv #(str "s" % "n") (range 1 5)))
 
 (gen-inst "shf" ["free-verb" "hpf" "warp1"])
 (gen-inst "tri" ["free-verb" "lf-tri"])

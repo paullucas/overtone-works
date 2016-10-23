@@ -6,7 +6,8 @@
 (gen-inst "wrplf" ["lpf" "warp1"])
 (gen-inst "wrphf" ["hpf" "warp1"])
 
-(get-samples "~/Producing/june17th-2016/" ["s1" "s2" "s3"])
+(get-samples "~/Producing/june17th-2016/"
+             (mapv #(str "s" %) (range 1 4)))
 
 (def wrplf1 (wrplf s1 :pointer 0.83 :freq-scale 0.4 :window-size 10 :amp 1.5 :lff 4000))
 (def wrpr1 (wrpr s2 :pointer 0.27 :freq-scale 0.5 :window-size 9 :amp 1.2))
