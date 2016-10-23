@@ -35,6 +35,9 @@
 
 ## Sets
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c5.clj">c5.clj</a>
+<br>
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c15.clj">c15.clj</a>
+(<a href="https://github.com/paullucas/supercollider-works/blob/master/synthdef/8.scd">8.scd</a> rewrite)
 
 ## Functions
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/functions.clj">functions.clj</a> - get-samples, gen-inst
