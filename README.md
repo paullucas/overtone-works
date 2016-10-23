@@ -38,6 +38,8 @@
 <br>
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c15.clj">c15.clj</a>
 (<a href="https://github.com/paullucas/supercollider-works/blob/master/synthdef/8.scd">8.scd</a> rewrite)
+<br>
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c16.clj">c16.clj</a>
 
 ## Functions
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/functions.clj">functions.clj</a> - get-samples, gen-inst
