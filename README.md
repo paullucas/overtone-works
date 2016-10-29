@@ -32,6 +32,8 @@
 <br>
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c14.clj">c14.clj</a> - Unreleased
 (<a href="https://github.com/paullucas/supercollider-works/blob/master/synthdef/7.scd">7.scd</a> rewrite)
+<br>
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c17.clj">c17.clj</a> - Unreleased
 
 ## Sets
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c5.clj">c5.clj</a>
@@ -45,4 +47,6 @@
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/functions.clj">functions.clj</a> - get-samples, gen-inst
 
 ## Misc
-<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/misc1.clj">misc1.clj</a> - Testing warp1 ugen
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/m1.clj">m1.clj</a> - Testing warp1 ugen
+<br>
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/m2.clj">m2.clj</a> - Live-coding
