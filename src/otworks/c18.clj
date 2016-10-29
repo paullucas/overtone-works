@@ -45,18 +45,21 @@
 
 (gen-inst "tri" ["free-verb" "lf-tri"])
 
-;; (def x (pgrain s1m 10 0.2 0.42 5000 100 2.5 1 1 0.1))
-;; (ctl x :cpos 0.5 :rate 0.42 :dur 2)
-;; (def y (rsin 80 4000 2500 100 0.1 10 10 0.1))
-;; (ctl y :dens 800 :rmul 2200)
-;; (ctl y :rmix 1)
-;; (ctl y :dens 1 :rmul 4000 :rmix 1)
-;; (ctl y :lff 4000)
-;; (ctl y :hff 100)
-;; (ctl y :rmul 1000)
-;; (ctl y :rmix 1)
-;; (ctl y :gate 0)
-;; (stop)
+(def x (pgrain s1m 10 0.2 0.42 5000 100 2.5 1 1 0.1))
+(ctl x :cpos 0.5 :rate 0.42 :dur 2)
+(def y (rsin 80 4000 2500 100 0.1 10 10 0.1))
+(ctl y :dens 800 :rmul 2200)
+(ctl y :rmix 1)
+(ctl y :dens 1 :rmul 4000 :rmix 1)
+(ctl y :lff 4000)
+(ctl y :hff 100)
+(ctl y :rmul 1000)
+(ctl y :rmix 1)
+(ctl y :gate 0)
+
+(stop)
+
+;; 
 
 (def x (pgrain s5m 10 0.2 0.42 5000 100 2.5 1 1 0.1))
 (def y (pgrain s6m 10 0.3 0.72 5000 100 2.5 1 1 0.1))
@@ -222,6 +225,7 @@
 (do
   (ctl x :rate 1.48)
   (ctl y :rate 1.62))
+
 (do
   (ctl x :rate 0.48)
   (ctl y :rate 0.62))
@@ -229,9 +233,11 @@
 (do
   (ctl x :rate 2.52)
   (ctl y :rate 2.12))
+
 (do
   (ctl x :rate 2.32)
   (ctl y :rate 2.02))
+
 (do
   (ctl x :rate 2.72)
   (ctl y :rate 2.12))
@@ -239,9 +245,11 @@
 (do
   (ctl x :rate 1.2)
   (ctl y :rate 1.12))
+
 (do
   (ctl x :rate 1.01)
   (ctl y :rate 1.99))
+
 (do
   (ctl x :rate 1.1)
   (ctl y :rate 0.99))
@@ -249,9 +257,11 @@
 (do
   (ctl x :rate 2.32)
   (ctl y :rate 2.02))
+
 (do
   (ctl x :rate 2.72)
   (ctl y :rate 2.12))
+
 (do
   (ctl x :rate 2.16)
   (ctl y :rate 1.89))
@@ -259,9 +269,11 @@
 (do
   (ctl x :rate 1.2)
   (ctl y :rate 1.12))
+
 (do
   (ctl x :rate 1.01)
   (ctl y :rate 1.99))
+
 (do
   (ctl x :rate 1.1)
   (ctl y :rate 0.99))
@@ -273,7 +285,6 @@
 
 ;;
 
-
 (def y (rsin 80 4000 2500 100 0.1 10 10 0.1))
 (ctl y :dens 800 :rmul 2200)
 (ctl y :rmix 1)
@@ -283,6 +294,7 @@
 (ctl y :rmul 1000)
 (ctl y :rmix 1)
 (ctl y :gate 0)
+
 (stop)
 
 ;;
