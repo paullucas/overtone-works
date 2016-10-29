@@ -1,4 +1,4 @@
-(ns otworks.c18
+(ns otworks.m2
   (:use overtone.live)
   (:require [otworks.functions :refer [get-samples gen-inst]]
             [leipzig.melody :refer [bpm phrase where tempo]]
