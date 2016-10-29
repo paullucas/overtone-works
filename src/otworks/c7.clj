@@ -70,6 +70,42 @@
    (tempo (bpm 1420))
    (where :pitch (comp scale/C scale/pentatonic))))
 
+(def track
+  (->>
+   (melody)
+   (tempo (bpm 4420))
+   (where :pitch (comp scale/C scale/pentatonic))))
+
+(def track
+  (->>
+   (melody)
+   (tempo (bpm 1420))
+   (where :pitch (comp scale/D scale/pentatonic))))
+
+(def track
+  (->>
+   (melody)
+   (tempo (bpm 1420))
+   (where :pitch (comp scale/E scale/pentatonic))))
+
+(def track
+  (->>
+   (melody)
+   (tempo (bpm 5420))
+   (where :pitch (comp scale/D scale/pentatonic))))
+
+(def track
+  (->>
+   (melody)
+   (tempo (bpm 6420))
+   (where :pitch (comp scale/D scale/pentatonic))))
+
+(def track
+  (->>
+   (melody)
+   (tempo (bpm 820))
+   (where :pitch (comp scale/E scale/pentatonic))))
+
 (live/jam (var track))
 
 (live/stop)
