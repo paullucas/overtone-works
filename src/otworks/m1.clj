@@ -1,3 +1,6 @@
+(ns otworks.m1
+  (:use overtone.live)
+
 (def sample-path "~/Producing/june10th-2016/")
 
 (defn get-sample [path]
