@@ -29,8 +29,9 @@
 
 (def x (pgrain s5m 10 0.2 0.42 5000 100 2.5 10 20 0.1))
 (def y (pgrain s6m 10 0.3 0.72 7000 200 2.5 10 10 0.1))
-(ctl x :rate 0.54)
-(ctl y :cpos 0.4)
+(do
+  (ctl x :rate 0.54)
+  (ctl y :cpos 0.4))
 (ctl x :cpos 0.5)
 (ctl y :t_trig 0.3)
 (def z (pbuf s5 0.0 0.4 3000 100 1 10 10))
