@@ -1,7 +1,5 @@
 (ns otworks.functions
-  (:require
-   [clojure.string :as s]
-   [overtone.core :refer [load-sample]]))
+  (:require [overtone.core :refer [load-sample]]))
 
 ;; get-samples - Load all samples in a folder
 
