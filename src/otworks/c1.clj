@@ -1,6 +1,6 @@
 (ns otworks.c17
   (:use overtone.live)
-  (:require [otworks.functions :refer [get-samples gen-inst]]
+  (:require [otworks.functions :refer [get-samples]]
             [leipzig.melody :refer [bpm phrase where tempo]]
             [leipzig.chord :refer [root triad seventh ninth]]
             [leipzig.live :as live]
