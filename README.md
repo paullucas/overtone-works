@@ -52,3 +52,6 @@
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/m1.clj">m1.clj</a> - Testing warp1 ugen
 <br>
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/m2.clj">m2.clj</a> - Live-coding
+
+## Template Project
+<p>I've written a boilerplate project for Overtone in the <a href="https://github.com/paullucas/overtone-works/tree/template">template branch</a>.
