@@ -1,13 +1,20 @@
 (ns otworks.functions
   (:require
    [clojure.string :as s]
-   [overtone.core :refer [load-sample]]))
+   [overtone.core :refer [load-sample buffer-mix-to-mono]]))
 
 (defn get-samples
   "Load all samples in a directory."
   [folder-path filenames]
   (doseq [filename filenames]
     (intern *ns* (symbol filename) (load-sample (str folder-path filename ".wav")))))
+
+(defn get-mono-samples
+  "Load all samples in a directory as monophonic buffers."
+  [folder-path filenames]
+  (doseq [filename filenames]
+    (intern *ns* (symbol (str filename "m"))
+            (buffer-mix-to-mono (load-sample (str folder-path filename ".wav"))))))
 
 (def ugen-template
   "(definst ugen-name [buf 0 pointer 0 amp 1 att 15 rel 40 lff 2000 hff 200 mix 1 room 1 damp 1 gate 1 rate 1 freq 440 start-pos 0.0 freq-scale 1 window-size 0.1 envbufnum -1 overlaps 1 interp 4] (let [src(* ugen-input (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))] (* src amp)))")

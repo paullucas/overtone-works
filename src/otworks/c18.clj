@@ -1,12 +1,12 @@
 (ns otworks.c18
   (:use overtone.live)
-  (:require [otworks.functions :refer [get-samples gen-inst]]))
+  (:require [otworks.functions :refer [get-samples get-mono-samples gen-inst]]))
 
 (get-samples "~/Producing/october26th-2016/smp/"
              (mapv #(str "s" %) (range 0 7)))
 
-(def s5m (buffer-mix-to-mono s5))
-(def s6m (buffer-mix-to-mono s6))
+(get-mono-samples "~/Producing/october26th-2016/smp/"
+                  (mapv #(str "s" %) (range 5 7)))
 
 (definst pgrain [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 t_trig 0 gate 1]
   (->
