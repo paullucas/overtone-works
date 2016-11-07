@@ -36,6 +36,8 @@
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c17.clj">c17.clj</a> - Unreleased
 <br>
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c18.clj">c18.clj</a> - Unreleased
+<br>
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c19.clj">c19.clj</a> - Unreleased
 
 ## Sets
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c5.clj">c5.clj</a>
@@ -46,7 +48,7 @@
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c16.clj">c16.clj</a>
 
 ## Functions
-<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/functions.clj">functions.clj</a> - get-samples, gen-inst
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/functions.clj">functions.clj</a> - get-samples, get-mono-samples, gen-inst
 
 ## Misc
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/m1.clj">m1.clj</a> - Testing warp1 ugen
