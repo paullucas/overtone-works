@@ -1,6 +1,6 @@
 (ns otworks.c17
   (:use overtone.live)
-  (:require [otworks.functions :refer [get-samples]]
+  (:require [otworks.functions :refer [get-samples get-mono-samples]]
             [leipzig.melody :refer [bpm phrase where tempo]]
             [leipzig.chord :refer [root triad seventh ninth]]
             [leipzig.live :as live]
@@ -8,6 +8,9 @@
 
 ;; Load files "s0.wav", "s1.wav", "s2.wav" from the folder path "~/FOLDER/CONTAINING/WAV/FILES/"
 (get-samples "~/FOLDER/CONTAINING/WAV/FILES/"
+             (mapv #(str "s" %) (range 0 3)))
+
+(get-mono-samples "~/FOLDER/CONTAINING/WAV/FILES/"
              (mapv #(str "s" %) (range 0 3)))
 
 ;; Basic SynthDef 
