@@ -6,8 +6,21 @@
 
 (definst wrpr
   "Granular -> Reverb -> Envelope -> Amp"
-  [buf 0 ptr 0 amp 1 att 15 rel 40 mix 1 room 1 damp 1 gate 1
-   rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
+  [buf 0
+   ptr 0
+   amp 1
+   att 15
+   rel 40
+   mix 1
+   room 1
+   damp 1
+   gate 1
+   rate 1
+   fscale 1
+   wsize 0.1
+   ebn -1
+   olaps 1
+   interp 4] 
   (->
    (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
    (free-verb mix room damp)
@@ -16,8 +29,22 @@
 
 (definst wrplf
   "Granular -> Lowpass Filter -> Envelope -> Amp"
-  [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
-   gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
+  [buf 0
+   ptr 0
+   amp 1
+   att 15
+   rel 40
+   lff 2000
+   mix 1
+   room 1
+   damp 1
+   gate 1
+   rate 1
+   fscale 1
+   wsize 0.1
+   ebn -1
+   olaps 1
+   interp 4] 
   (->
    (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)   
    (lpf lff)
@@ -26,8 +53,22 @@
 
 (definst wrphf
   "Granular -> Highpass Filter -> Envelope -> Amp"
-  [buf 0 ptr 0 amp 1 att 15 rel 40 hff 200 mix 1 room 1 damp 1
-   gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
+  [buf 0
+   ptr 0
+   amp 1
+   att 15
+   rel 40
+   hff 200
+   mix 1
+   room 1
+   damp 1
+   gate 1
+   rate 1
+   fscale 1
+   wsize 0.1
+   ebn -1
+   olaps 1
+   interp 4] 
   (->
    (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)   
    (hpf hff)
@@ -36,8 +77,22 @@
 
 (definst wrprlf
   "Granular -> Lowpass Filter -> Reverb -> Envelope -> Amp"
-  [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
-   gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
+  [buf 0
+   ptr 0
+   amp 1
+   att 15
+   rel 40
+   lff 2000
+   mix 1
+   room 1
+   damp 1
+   gate 1
+   rate 1
+   fscale 1
+   wsize 0.1
+   ebn -1
+   olaps 1
+   interp 4] 
   (->
    (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
    (lpf lff)
@@ -47,8 +102,22 @@
 
 (definst wrprlfo
   "Granular -> Lowpass Filter -> Reverb -> Envelope -> Amp"
-  [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
-   gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
+  [buf 0
+   ptr 0
+   amp 1
+   att 15
+   rel 40
+   lff 2000
+   mix 1
+   room 1
+   damp 1
+   gate 1
+   rate 1
+   fscale 1
+   wsize 0.1
+   ebn -1
+   olaps 1
+   interp 4] 
   (->
    (warp1 1 buf (+ 0.4 (* 0.1 (sin-osc:kr ptr))) fscale wsize ebn olaps 0.0 interp)
    (lpf lff)
@@ -58,7 +127,15 @@
 
 (definst tri
   "Triangle Oscillator -> Reverb -> Envelope -> Amp"
-  [buf 0 amp 1 att 15 rel 40 mix 1 room 1 damp 1 gate 1 freq 440] 
+  [buf 0
+   amp 1
+   att 15
+   rel 40
+   mix 1
+   room 1
+   damp 1
+   gate 1
+   freq 440] 
   (->
    (lf-tri freq)
    (free-verb mix room damp)
@@ -67,7 +144,17 @@
 
 (definst pgrain
   "Granular -> Lowpass Filter -> Highpass Filter -> Reverb -> Envelope"
-  [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 t_trig 0 gate 1]
+  [buf 0
+   dur 1
+   cpos 0.0
+   rate 1
+   lff 2000
+   hff 200
+   amp 1
+   att 15
+   rel 40
+   t_trig 0
+   gate 1]
   (->
    (t-grains 2 (impulse:ar t_trig) buf rate (* 0.1 (sin-osc:kr cpos)) dur 0 amp 1)
    (lpf lff)
@@ -77,9 +164,18 @@
 
 (definst pbuf
   "Looper -> Amp -> Lowpass Filter -> Highpass Filter -> Reverb -> Envelope"
-  [buf 0 start-pos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1 loop 1]
+  [buf 0
+   spos 0.0
+   rate 1
+   lff 2000
+   hff 200
+   amp 1
+   att 15
+   rel 40
+   gate 1
+   loop 1]
   (->
-   (play-buf 2 buf rate 1 start-pos loop 2)
+   (play-buf 2 buf rate 1 spos loop 2)
    (* amp)
    (lpf lff)
    (hpf hff)
@@ -88,7 +184,15 @@
 
 (definst rsin
   "Sine Oscillator -> Amp -> Lowpass Filter -> Highpass Filter -> Envelope -> Reverb"
-  [dens 100 rmul 1000 lff 2000 hff 200 amp 1 att 15 rel 40 rmix 0.5 gate 1]
+  [dens 100
+   rmul 1000
+   lff 2000
+   hff 200
+   amp 1
+   att 15
+   rel 40
+   rmix 0.5
+   gate 1]
   (->
    (sin-osc (* rmul (lf-noise1:kr dens)))
    (* amp)
