@@ -1,7 +1,7 @@
 (ns otworks.c7
   (:use overtone.live)
   (:require
-   [otworks.functions :refer [get-samples gen-inst]]
+   [otworks.functions :refer [get-samples]]
    [leipzig.melody :refer [bpm is phrase then times where with tempo]]
    [leipzig.chord :as chord]
    [leipzig.live :as live]

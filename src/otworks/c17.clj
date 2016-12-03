@@ -1,6 +1,6 @@
 (ns otworks.c17
   (:use overtone.live)
-  (:require [otworks.functions :refer [get-samples get-mono-samples gen-inst]]
+  (:require [otworks.functions :refer [get-samples get-mono-samples]]
             [leipzig.melody :refer [bpm phrase where tempo]]
             [leipzig.chord :refer [root triad seventh ninth]]
             [leipzig.live :as live]
@@ -12,7 +12,8 @@
 (get-mono-samples "~/Producing/october26th-2016/smp/"
                   (mapv #(str "s" %) (range 0 1)))
 
-(definst pgrain [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 t_trig 0 gate 1]
+(definst pgrain
+  [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 t_trig 0 gate 1]
   (->
    (t-grains 2 (impulse:ar t_trig) buf rate (* 0.1 (sin-osc:kr cpos)) dur 0 amp 1)
    (lpf lff)
@@ -20,7 +21,8 @@
    (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
    (free-verb 0.6 1 1)))
 
-(definst rsin [dens 100 rmul 1000 lff 2000 hff 200 amp 1 att 15 rel 40 rmix 0.5 gate 1]
+(definst rsin
+  [dens 100 rmul 1000 lff 2000 hff 200 amp 1 att 15 rel 40 rmix 0.5 gate 1]
   (->
    (sin-osc (* rmul (lf-noise1:kr dens)))
    (* amp)

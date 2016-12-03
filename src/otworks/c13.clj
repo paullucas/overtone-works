@@ -5,9 +5,10 @@
 (get-samples "~/Producing/october20th-2016/sc8/"
              (mapv #(str "s" %) (range 13 15)))
 
-(definst pbufm [buf 0 start-pos 0.0 rate 1 amp 1 att 15 rel 40 gate 1]
+(definst pbufm
+  [buf 0 spos 0.0 rate 1 amp 1 att 15 rel 40 gate 1]
   (->
-   (play-buf 1 buf rate 1 start-pos 1 2)
+   (play-buf 1 buf rate 1 spos 1 2)
    (pan2 0 1)
    (free-verb 1 1 1)
    (* amp)

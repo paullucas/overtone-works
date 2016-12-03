@@ -1,6 +1,6 @@
 (ns otworks.c8
   (:use overtone.live)
-  (:require [otworks.functions :refer [get-samples gen-inst]]
+  (:require [otworks.functions :refer [get-samples]]
             [leipzig.melody :refer [bpm phrase where tempo]]
             [leipzig.chord :refer [root triad seventh ninth]]
             [leipzig.live :as live]
@@ -9,10 +9,26 @@
 (get-samples "~/Producing/october2nd-2016/"
              (mapv #(str "s" % "n") (range 1 5)))
 
-(gen-inst "shf" ["free-verb" "hpf" "warp1"])
-(gen-inst "tri" ["free-verb" "lf-tri"])
+(definst shf
+  [buf 0 ptr 0 amp 1 att 15 rel 40 hff 200 mix 1 room 1 damp 1
+   gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
+  (->
+   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+   (hpf hff)
+   (free-verb mix room damp)
+   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+   (* amp)))
 
-(definst sino [freq 440 dur 1.0]
+(definst tri
+  [buf 0 amp 1 att 15 rel 40 mix 1 room 1 damp 1 gate 1 freq 440] 
+  (->
+   (lf-tri freq)
+   (free-verb mix room damp)
+   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+   (* amp)))
+
+(definst sino
+  [freq 440 dur 1.0]
   (-> freq
       sin-osc
       (* (env-gen (perc 0.2 dur) :action FREE))
@@ -48,7 +64,7 @@
 
 (live/jam (var track))
 
-(def sm1 (shf s2n :pointer 0.5 :freq-scale 0.19 :window-size 12 :hff 50 :amp 2))
+(def sm1 (shf s2n :ptr 0.5 :fscale 0.19 :wsize 12 :hff 50 :amp 2))
 
 (melody
  (phrase
@@ -62,7 +78,7 @@
   [(-> triad (root 0))
    (-> ninth (root 1))]))
 
-(ctl sm1 :freq-scale 0.235)
+(ctl sm1 :fscale 0.235)
 
 (def tri1 (tri :freq (midi->hz 88) :amp 0.115 :rel 12))
 
@@ -78,9 +94,9 @@
   [(-> triad (root 3))
    (-> ninth (root 2))]))
 
-(ctl sm1 :freq-scale 0.205)
+(ctl sm1 :fscale 0.205)
 
-(ctl sm1 :freq-scale 0.19)
+(ctl sm1 :fscale 0.19)
 
 (ctl sm1 :gate 0)
 

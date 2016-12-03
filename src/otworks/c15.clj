@@ -5,9 +5,10 @@
 (get-samples "~/Producing/october20th-2016/sc8/"
              (mapv #(str "s" %) (range 0 18)))
 
-(definst pbuf [buf 0 start-pos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1]
+(definst pbuf
+  [buf 0 spos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1]
   (->
-   (play-buf 2 buf rate 1 start-pos 1 2)
+   (play-buf 2 buf rate 1 spos 1 2)
    (* amp)
    (lpf lff)
    (hpf hff)
@@ -41,25 +42,28 @@
 ;;
 
 (do
-  (definst pbuf [buf 0 start-pos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1 loop 1]
+  (definst pbuf
+    [buf 0 spos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1 loop 1]
     (->
-     (play-buf 2 buf rate 1 start-pos loop 2)
+     (play-buf 2 buf rate 1 spos loop 2)
      (* amp)
      (lpf lff)
      (hpf hff)
      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
      (free-verb 0.5 1 1)))
 
-  (definst pbufm [buf 0 start-pos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1]
+  (definst pbufm
+    [buf 0 spos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1]
     (->
-     (play-buf 1 buf rate 1 start-pos 1 2)
+     (play-buf 1 buf rate 1 spos 1 2)
      (* amp)
      (lpf lff)
      (hpf hff)
      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
      (free-verb 0.5 1 1)))
 
-  (definst pgrain [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 t_trig 0 gate 1]
+  (definst pgrain
+    [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 t_trig 0 gate 1]
     (->
      (t-grains 2 (impulse:ar t_trig) buf rate cpos dur 0 amp 1)
      (lpf lff)
@@ -84,7 +88,8 @@
 
 ;; 
 
-(definst pgrain [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 t-trig 0 gate 1 mamp 1]
+(definst pgrain
+  [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 t-trig 0 gate 1 mamp 1]
   (->
    (t-grains 2 (impulse:ar t-trig) buf rate cpos dur 0 amp 2)
    (lpf lff)
@@ -137,9 +142,10 @@
 
 ;; 
 
-(definst pbufm [buf 0 start-pos 0.0 rate 1 amp 1 att 15 rel 40 gate 1 loop 1]
+(definst pbufm
+  [buf 0 spos 0.0 rate 1 amp 1 att 15 rel 40 gate 1 loop 1]
   (->
-   (play-buf 1 buf rate 1 start-pos loop 2)
+   (play-buf 1 buf rate 1 spos loop 2)
    (pan2 0 1)
    (free-verb 1 1 1)
    (* amp)
@@ -168,16 +174,18 @@
 ;;
 
 (do
-  (definst pbuf [buf 0 start-pos 0.0 rate 1 amp 1 att 10 rel 40 gate 1 loop 1]
+  (definst pbuf
+    [buf 0 spos 0.0 rate 1 amp 1 att 10 rel 40 gate 1 loop 1]
     (->
-     (play-buf 2 buf rate 1 start-pos loop 2)
+     (play-buf 2 buf rate 1 spos loop 2)
      (free-verb 1 1 1)
      (* amp)
      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))))
 
-  (definst pbufm2 [buf 0 start-pos 0.0 rate 1 amp 1 att 3 rel 40 gate 1 loop 1]
+  (definst pbufm2
+    [buf 0 spos 0.0 rate 1 amp 1 att 3 rel 40 gate 1 loop 1]
     (->
-     (play-buf 1 buf rate 1 start-pos loop 2)
+     (play-buf 1 buf rate 1 spos loop 2)
      (pan2 0 1)
      (* amp)
      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2)))))
