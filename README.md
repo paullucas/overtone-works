@@ -50,6 +50,9 @@
 ## Functions
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/functions.clj">functions.clj</a> - get-samples, get-mono-samples, gen-inst
 
+## SynthDefs
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/synthdefs.clj">synthdefs.clj</a> - wrpr, wrplf, wrphf, wrprlf, wrprlfo, tri, pgrain, pbuf, rsin
+
 ## Misc
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/m1.clj">m1.clj</a> - Testing warp1 ugen
 <br>
