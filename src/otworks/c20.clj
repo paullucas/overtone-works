@@ -6,7 +6,7 @@
                   (mapv #(str "s" %) (range 1 9)))
 
 (definst tgg
-  [buf 0 dur 1 cpos 0.0 rate 1  lff 2000 hff 200 amp 1 att 15 rel 40 trig 0 gate 1]
+  [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 trig 0 gate 1]
   (->
    (t-grains 1 (impulse:ar trig) buf rate (* 0.1 (sin-osc:kr cpos)) dur 0.5 0.75 1)
    (lpf lff)
@@ -16,7 +16,7 @@
    (* amp)))
 
 (definst tgl
-  [buf 0 dur 1 cpos 0.0 rate 1  lff 2000 amp 1 att 15 rel 40 trig 0 gate 1]
+  [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 amp 1 att 15 rel 40 trig 0 gate 1]
   (->
    (t-grains 1 (impulse:ar trig) buf rate (* 0.1 (sin-osc:kr cpos)) dur 0.5 1.5 1)
    (lpf lff)
@@ -38,10 +38,10 @@
 (ctl tg2 :rate 0.4)
 (ctl tg2 :rate 0.36)
 (ctl tg1 :rate 0.55)
-(ctl tg2 :rate 0.46)
+(ctl tg2 :rate 0.5)
 (do
-  (ctl tg2 :rate 0.2)
-  (ctl tg1 :rate 0.2))
+  (ctl tg1 :rate 0.2)
+  (ctl tg2 :rate 0.2))
 (def si1 (sio 66.5 0.5))
 (ctl si1 :freq 58.4)
 (def tg3 (tgg s8m 10 0.03 2 8000 400 0.45 25 20 4))
@@ -51,10 +51,11 @@
 (ctl si2 :gate 0)
 (ctl tg3 :gate 0)
 (do
-  (ctl tg2 :rate 0.4)
-  (ctl tg1 :rate 0.36))
+  (ctl tg1 :rate 0.36)
+  (ctl tg2 :rate 0.4))
+(ctl tg2 :rate 0.36)
 (ctl tg1 :gate 0)
 (ctl tg2 :rate 0.2)
-(ctl tg2 :gate 0)
+(ctl tg2 :rate 0.18 :gate 0)
 
 (stop)
