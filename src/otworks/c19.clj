@@ -104,7 +104,6 @@
   (ctl x :gate 0)
   (ctl y :gate 0))
 (ctl z :cpos 0.2 :lpf 1000 :hff 50)
-(ctl z :rate 0.7 :cpos 0.8)
 (ctl z :gate 0)
 
 (stop)
