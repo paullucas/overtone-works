@@ -34,7 +34,7 @@
    (free-verb 1 1 1)
    (* (env-gen (asr :attack att :curve 1 :release 20) :gate gate :action FREE))
    (* 0.5)))
-;; rate, cpos, t_trig, amp, lf hff, gate
+
 (def x (pgrain s5m 0.2 0.42 5000 100 20))
 (def y (pgrain s6m 0.3 0.72 7000 200 10))
 (do
