@@ -24,7 +24,7 @@
    (* a)))
 
 (definst c1sio
-  [f 440 a 1 rl 40 at 15 g 0] 
+  [f 440 a 1 rl 40 at 15 g 1] 
   (->
    (sin-osc [f (+ f 1)])
    (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
@@ -37,9 +37,25 @@
 (c t2 :r 0.75)
 (c t1 :r 0.55)
 (c t2 :r 0.4)
-(def s1 (c1sio 5250 0.2 10))
+(def s1 (c1sio 5250 0.1 10))
 (c s1 :g 0)
 (def s2 (c1sio 800 0.15 10))
 (c s2 :f 80 :a 0.8)
+(c t1 :r 0.48)
+(c t2 :r 0.54)
+(c s2 :f 88)
+(c s2 :f 94)
+(c s2 :f 106)
+(c s2 :f 72 :a 0.9)
+(c t2 :r 1000)
+(c t1 :r 0.7)
+(c t1 :r 0.55)
+(c t2 :r 0.625)
+(c t2 :r 0.48)
+(c t2 :r 0.4)
+(c t1 :r 0.8)
+(c s2 :f 60 :a 1 :g 0)
+(c t2 :g 0)
+(c t1 :g 0)
 
 (stop)
