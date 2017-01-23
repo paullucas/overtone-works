@@ -42,7 +42,9 @@
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c20.clj">c20.clj</a> - Unreleased
 <br>
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c22.clj">c22.clj</a> - Unreleased
-(<a href="https://github.com/paullucas/hsc3-works/blob/master/c4.hs">c4.hs</a> rewrite)
+(partial <a href="https://github.com/paullucas/hsc3-works/blob/master/c4.hs">c4.hs</a> rewrite)
+<br>
+<a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c23.clj">c23.clj</a> - Unreleased
 
 ## Sets
 <a href="https://github.com/paullucas/overtone-works/blob/master/src/otworks/c5.clj">c5.clj</a>
