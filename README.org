@@ -1,35 +1,35 @@
 * Overtone Works
 ** Compositions 
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c1.clj][c1.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c2.clj][c2.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c3.clj][c3.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c4.clj][c4.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c6.clj][c6.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c7.clj][c7.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c8.clj][c8.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c9.clj][c9.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/1.scd][1.scd]] rewrite)
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c10.clj][c10.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/2.scd][2.scd]] rewrite)
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c11.clj][c11.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/3.scd][3.scd]] rewrite)
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c12.clj][c12.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/4.scd][4.scd]] rewrite)
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c13.clj][c13.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/6.scd][6.scd]] rewrite)
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c14.clj][c14.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/7.scd][7.scd]] rewrite)
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c17.clj][c17.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c18.clj][c18.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c19.clj][c19.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c20.clj][c20.clj]] - Unreleased
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c22.clj][c22.clj]] - Unreleased (partial [[https://github.com/paullucas/hsc3-works/blob/master/c4.hs][c4.hs]] rewrite)
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c23.clj][c23.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c1.clj][c1.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c2.clj][c2.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c3.clj][c3.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c4.clj][c4.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c6.clj][c6.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c7.clj][c7.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c8.clj][c8.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c9.clj][c9.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/1.scd][1.scd]] rewrite)
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c10.clj][c10.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/2.scd][2.scd]] rewrite)
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c11.clj][c11.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/3.scd][3.scd]] rewrite)
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c12.clj][c12.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/4.scd][4.scd]] rewrite)
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c13.clj][c13.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/6.scd][6.scd]] rewrite)
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c14.clj][c14.clj]] - Unreleased ([[https://github.com/paullucas/supercollider-works/blob/master/synthdef/7.scd][7.scd]] rewrite)
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c17.clj][c17.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c18.clj][c18.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c19.clj][c19.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c20.clj][c20.clj]] - Unreleased
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c22.clj][c22.clj]] - Unreleased (partial [[https://github.com/paullucas/hsc3-works/blob/master/c4.hs][c4.hs]] rewrite)
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c23.clj][c23.clj]] - Unreleased
 ** Sets
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c5.clj][c5.clj]]
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c15.clj][c15.clj]]
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c16.clj][c16.clj]] - [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/8.scd][8.scd]] rewrite
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c21.clj][c21.clj]]
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c24.clj][c24.clj]]
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c5.clj][c5.clj]]
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c15.clj][c15.clj]]
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c16.clj][c16.clj]] - [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/8.scd][8.scd]] rewrite
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c21.clj][c21.clj]]
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c24.clj][c24.clj]]
 ** Functions
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/functions.clj][functions.cljs]] - get-samples, get-mono-samples, gen-inst
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/functions.clj][functions.cljs]] - get-samples, get-mono-samples, gen-inst
 ** SynthDefs
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/synthdefs.clj][synthdefs.clj]] - wrpr, wrplf, wrphf, wrprlf, wrprlfo, tri, pgrain, pbuf, rsin
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/synthdefs.clj][synthdefs.clj]] - wrpr, wrplf, wrphf, wrprlf, wrprlfo, tri, pgrain, pbuf, rsin
 ** Misc
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/m1.clj][m1.clj]] - Testing warp1 ugen
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/m2.clj][m2.clj]] - Live-coding
-   [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/m3.clj][m3.clj]] - Live-coding
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/m1.clj][m1.clj]] - Testing warp1 ugen
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/m2.clj][m2.clj]] - Live-coding
+  - [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/m3.clj][m3.clj]] - Live-coding
