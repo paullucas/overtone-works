@@ -1,11 +1,13 @@
 (ns otworks.c7
-  (:use overtone.live)
   (:require
+   [overtone.core]
    [otworks.functions :refer [get-samples]]
    [leipzig.melody :refer [bpm is phrase then times where with tempo]]
    [leipzig.chord :as chord]
    [leipzig.live :as live]
    [leipzig.scale :as scale]))
+
+(connect-external-server)
 
 (definst tri [freq 440 dur 1.0]
   (-> freq

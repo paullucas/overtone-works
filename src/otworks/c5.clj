@@ -1,6 +1,8 @@
 (ns otworks.c5
-  (:use overtone.live)
-  (:require [otworks.functions :refer [get-samples]]))
+  (:require [overtone.core]
+            [otworks.functions :refer [get-samples]]))
+
+(connect-external-server)
 
 (get-samples "~/Producing/july3rd-2016/samples/"
              (mapv #(str "smp" %) (range 1 5)))

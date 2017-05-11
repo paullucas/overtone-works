@@ -1,6 +1,8 @@
 (ns otworks.c23
-  (:use [overtone.live :rename {ctl c}])
-  (:require [otworks.functions :refer [get-samples]]))
+  (:require [overtone.core :rename {ctl c}]
+            [otworks.functions :refer [get-samples]]))
+
+(connect-external-server)
 
 (get-samples "~/Producing/jan2nd-2017/smp/"
              (mapv #(str "s" % "m") (range 0 9)))

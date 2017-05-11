@@ -1,10 +1,12 @@
 (ns otworks.c17
-  (:use overtone.live)
-  (:require [otworks.functions :refer [get-samples get-mono-samples]]
+  (:require [overtone.core]
+            [otworks.functions :refer [get-samples get-mono-samples]]
             [leipzig.melody :refer [bpm phrase where tempo]]
             [leipzig.chord :refer [root triad seventh ninth]]
             [leipzig.live :as live]
             [leipzig.scale :as scale]))
+
+(connect-external-server)
 
 (get-samples "~/Producing/october26th-2016/smp/"
              (mapv #(str "s" %) (range 0 3)))
