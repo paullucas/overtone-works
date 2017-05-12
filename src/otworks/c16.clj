@@ -1,12 +1,12 @@
 (ns otworks.c16
-  (:require [overtone.core]
-            [otworks.functions :refer [get-samples]]
+  (:require [overtone.core :refer :all]
+            [otworks.functions :refer [get-samples boot]]
             [leipzig.melody :refer [bpm phrase where tempo]]
             [leipzig.chord :refer [root triad seventh ninth]]
             [leipzig.live :as live]
             [leipzig.scale :as scale]))
 
-(connect-external-server)
+(boot)
 
 (get-samples "~/Producing/october20th-2016/ot16/"
              (mapv #(str "s" %) (range 0 9)))

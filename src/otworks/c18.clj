@@ -1,8 +1,8 @@
 (ns otworks.c18
-  (:require [overtone.core]
-            [otworks.functions :refer [get-samples get-mono-samples]]))
+  (:require [overtone.core :refer :all]
+            [otworks.functions :refer [get-samples get-mono-samples boot]]))
 
-(connect-external-server)
+(boot)
 
 (get-samples "~/Producing/october26th-2016/smp/"
              (mapv #(str "s" %) (range 0 7)))

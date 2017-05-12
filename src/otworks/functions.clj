@@ -1,7 +1,11 @@
 (ns otworks.functions
   (:require
    [clojure.string :as s]
-   [overtone.core :refer [load-sample buffer-mix-to-mono]]))
+   [overtone.core :refer [load-sample buffer-mix-to-mono server-connected? connect-external-server]]))
+
+(defn boot []
+  (when (not (server-connected?))
+    (connect-external-server)))
 
 (defn get-samples
   "Load all samples in a directory."
