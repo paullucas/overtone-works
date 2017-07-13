@@ -40,7 +40,8 @@
       (free-verb 0.5 1 1)))
 
 
-;; Track
+;; Track - Forget
+;; https://paullucas.bandcamp.com/track/forget
 
 (def x (pbufm s6 0.0 0.45 2000 80 0.8 10 10))
 (def y (pbufm s5 0.0 0.85 2000 200 1.7 10 10))

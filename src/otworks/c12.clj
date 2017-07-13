@@ -20,6 +20,9 @@
       (free-verb 0.5 1 1)))
 
 
+;; Track - Swell
+;; https://paullucas.bandcamp.com/track/swell
+
 (def x (pbuf s9 0.0 0.8 1000 60 0.7 10 10))
 (def y (pbuf s12 0.0 1.25 6000 800 0.8 10 10))
 (def z (pbuf s10 0.0 1.8 2000 200 0.8 10 20))

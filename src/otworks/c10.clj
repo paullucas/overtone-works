@@ -39,7 +39,8 @@
       (free-verb 0.5 1 1)))
 
 
-;; Track
+;; Track - Breathe
+;; https://paullucas.bandcamp.com/track/breathe
 
 (def x (pbuf s2 0 0.4 4000 100 0.8 10 10))
 (def y (pbufm s3 0 0.5 2000 50 0.93 10 10))

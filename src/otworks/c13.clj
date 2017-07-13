@@ -19,7 +19,8 @@
       (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))))
 
 
-;; Track
+;; Track - Autonomy
+;; https://paullucas.bandcamp.com/track/autonomy
 
 (def a (pbufm s13 0.0 1 0.7 10 20))
 (def b (pbufm s13 0.0 0.5 0.8 10 20))

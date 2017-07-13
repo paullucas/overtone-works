@@ -19,7 +19,8 @@
       (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))))
 
 
-;; Track
+;; Track - Lie
+;; https://paullucas.bandcamp.com/track/lie
 
 (def x (pbuf s1 (/ @sample-rate* 4) 0.4 1500 150 2 10 1))
 (def y (pbuf s1 0.0 0.5 3000 50 1 1 5))

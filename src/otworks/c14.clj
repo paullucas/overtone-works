@@ -35,7 +35,8 @@
       (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))))
 
 
-;; Track
+;; Track - Bleak
+;; https://paullucas.bandcamp.com/track/bleak
 
 (def a (pbuf s15 0.0 0.7 1.2 10 20))
 (def b (pbufm s16 0.0 1 0.7 10 20))
