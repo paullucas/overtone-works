@@ -6,7 +6,12 @@
             [leipzig.live :as live]
             [leipzig.scale :as scale]))
 
+;; Init
+
 (boot)
+
+
+;; SynthDefs
 
 (definst tri [freq 440 dur 1.0]
   (-> freq
@@ -35,6 +40,9 @@
       (* (env-gen (perc 0.05 0.5) :action FREE))
       (free-verb)
       (* 0.6)))
+
+
+;; Misc
 
 (defmethod live/play-note :default [{midi :pitch seconds :duration}]
   (-> midi midi->hz (tri seconds))

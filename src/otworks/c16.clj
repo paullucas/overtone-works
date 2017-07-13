@@ -6,75 +6,88 @@
             [leipzig.live :as live]
             [leipzig.scale :as scale]))
 
-(boot)
+;; Init
 
-(get-samples "~/Producing/october20th-2016/ot16/"
-             (mapv #(str "s" %) (range 0 9)))
+(boot)
+(get-samples "~/Producing/october20th-2016/ot16/" (mapv #(str "s" %) (range 0 9)))
+
+
+;; SynthDefs
 
 (definst wrpr
   [buf 0 ptr 0 amp 1 att 15 rel 40 mix 1 room 1 damp 1 gate 1
    rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)   
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst wrplf
   [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)   
-   (lpf lff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (lpf lff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst wrphf
   [buf 0 ptr 0 amp 1 att 15 rel 40 hff 200 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)   
-   (hpf hff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (hpf hff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst wrprlf
   [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
-   (lpf lff)
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (lpf lff)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst wrprlfo
   [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf (+ 0.4 (* 0.1 (sin-osc:kr ptr))) fscale wsize ebn olaps 0.0 interp)
-   (lpf lff)
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf (+ 0.4 (* 0.1 (sin-osc:kr ptr))) fscale wsize ebn olaps 0.0 interp)
+      (lpf lff)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst shf
   [buf 0 ptr 0 amp 1 att 15 rel 40 hff 200 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
-   (hpf hff)
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (hpf hff)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst tri
   [buf 0 amp 1 att 15 rel 40 mix 1 room 1 damp 1 gate 1 freq 440] 
-  (->
-   (lf-tri freq)
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (lf-tri freq)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
+
+(definst sino [freq 440 dur 1.0]
+  (-> freq
+      sin-osc
+      (* (env-gen (perc 0.2 dur) :action FREE))
+      (free-verb :room 1 :mix 1 :damp 1)
+      (* 0.2)))
+
+
+;; Track 1
 
 (def wrplf1 (wrplf s0 :ptr 0.83 :fscale 0.4 :wsize 14 :amp 1.5 :lff 3000))
 (def wrplf2 (wrprlf s1 :ptr 0.1 :fscale 0.8 :wsize 8 :amp 1.1 :lff 5000))
@@ -112,7 +125,8 @@
 (ctl wrphf1 :gate 0)
 (ctl wrphf1 :hff 100)
 
-;;
+
+;; Track 2
 
 (def wrplf1 (wrplf s4 :ptr 0.83 :fscale 0.4 :wsize 10 :amp 1.5 :lff 4000))
 (def wrpr1 (wrpr s5 :ptr 0.27 :fscale 0.5 :wsize 9 :amp 1.2))
@@ -134,7 +148,8 @@
 (ctl wrpr1 :gate 0)
 (ctl wrphf1 :gate 0)
 
-;;
+
+;; Track 3
 
 (def tri1 (tri :freq 64 :amp 0.4))
 (def tri2 (tri :freq 72 :amp 0.4 :att 20))
@@ -181,41 +196,33 @@
 (ctl s2-smplr2 :gate 0)
 (ctl s2-smplr :gate 0)
 
-;;
 
-(do
-  (definst sino [freq 440 dur 1.0]
-    (-> freq
-        sin-osc
-        (* (env-gen (perc 0.2 dur) :action FREE))
-        (free-verb :room 1 :mix 1 :damp 1)
-        (* 0.2)))
+;; Track 4
 
-  (defmethod live/play-note :default [{midi :pitch seconds :duration}]
-    (-> midi midi->hz (sino seconds)))
+(do (defmethod live/play-note :default [{midi :pitch seconds :duration}]
+      (-> midi midi->hz (sino seconds)))
 
-  (defn melody [phrase]
-    (def track
-      (->>
-       phrase
-       (tempo (bpm 45))
-       (where :pitch (comp scale/lower scale/lower))
-       (where :pitch (comp scale/D scale/mixolydian)))))
+    (defn melody [phrase]
+      (def track
+        (->>
+         phrase
+         (tempo (bpm 45))
+         (where :pitch (comp scale/lower scale/lower))
+         (where :pitch (comp scale/D scale/mixolydian)))))
 
-  (defn sino-amp [amp]
-    (definst sino [freq 440 dur 1.0]
-      (-> freq
-          sin-osc
-          (* (env-gen (perc 0.2 dur) :action FREE))
-          (free-verb :room 1 :mix 1 :damp 1)
-          (* amp))))
+    (defn sino-amp [amp]
+      (definst sino [freq 440 dur 1.0]
+        (-> freq
+            sin-osc
+            (* (env-gen (perc 0.2 dur) :action FREE))
+            (free-verb :room 1 :mix 1 :damp 1)
+            (* amp))))
 
-  (melody
-   (phrase
-    (cycle [6 8])
-    [(-> triad (root 1))
-     (-> seventh (root 3))])))
-
+    (melody
+     (phrase
+      (cycle [6 8])
+      [(-> triad (root 1))
+       (-> seventh (root 3))])))
 (live/jam (var track))
 (def sm1 (shf s8 :ptr 0.5 :fscale 0.19 :wsize 12 :hff 50 :amp 2))
 (melody
@@ -244,6 +251,7 @@
 (sino-amp 0.1)
 (sino-amp 0.05)
 (sino-amp 0.0)
+
 
 (live/stop)
 (stop)

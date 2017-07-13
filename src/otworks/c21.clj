@@ -2,91 +2,92 @@
   (:require [overtone.core :refer :all :rename {ctl c}]
             [otworks.functions :refer [get-samples get-mono-samples boot]]))
 
+;; Init
+
 (boot)
+(get-samples "~/Producing/october20th-2016/ot16/" (mapv #(str "s" %) (range 0 9)))
+(get-mono-samples "~/Producing/november4th-2016/chops/smpls/" (mapv #(str "s" %) (range 1 9)))
 
-(get-samples "~/Producing/october20th-2016/ot16/"
-             (mapv #(str "s" %) (range 0 9)))
 
-(get-mono-samples "~/Producing/november4th-2016/chops/smpls/"
-                  (mapv #(str "s" %) (range 1 9)))
+;; SynthDefs
 
 (definst tg
   [d 5 r 1 lf 2000 hf 200 a 1 rl 40 g 1]
-  (->
-   (t-grains 1 (impulse:ar 4) s8m r (* 0.1 (sin-osc:kr 0.03)) d 0.5 0.7 1)
-   (lpf lf)
-   (hpf hf)
-   (g-verb 15 6 0.5 0.5 20 0)
-   (* (env-gen (asr :attack 25 :curve 1 :release rl) :gate g :action 2))
-   (* a)))
+  (-> (t-grains 1 (impulse:ar 4) s8m r (* 0.1 (sin-osc:kr 0.03)) d 0.5 0.7 1)
+      (lpf lf)
+      (hpf hf)
+      (g-verb 15 6 0.5 0.5 20 0)
+      (* (env-gen (asr :attack 25 :curve 1 :release rl) :gate g :action 2))
+      (* a)))
+
 
 (definst tgl
   [r 1 a 1.8 g 1]
-  (->
-   (t-grains 1 (impulse:ar 0.15) s7m r (* 0.1 (sin-osc:kr 0.06)) 7 0.5 1.5 1)
-   (lpf 1000)
-   (g-verb 15 6 0.5 0.5 20 0.2)
-   (* (env-gen (asr :attack 10 :curve 1 :release 40) :gate g :action 2))
-   (* a)))
+  (-> (t-grains 1 (impulse:ar 0.15) s7m r (* 0.1 (sin-osc:kr 0.06)) 7 0.5 1.5 1)
+      (lpf 1000)
+      (g-verb 15 6 0.5 0.5 20 0.2)
+      (* (env-gen (asr :attack 10 :curve 1 :release 40) :gate g :action 2))
+      (* a)))
+
 
 (definst sio
   [f 220 a 1 rl 40 g 1]
-  (->
-   (sin-osc [f (+ f 1)])
-   (* (env-gen (asr :attack 15 :curve 1 :release rl) :gate g :action 2))
-   (* a)))
+  (-> (sin-osc [f (+ f 1)])
+      (* (env-gen (asr :attack 15 :curve 1 :release rl) :gate g :action 2))
+      (* a)))
+
 
 (definst wrpr
   [b 0 p 0 a 1 at 15 rl 40 m 1 rm 1 dp 1 g 1 fs 1 ws 0.1 e -1 ol 1 i 4] 
-  (->
-   (warp1 1 b p fs ws e ol 0.0 i)   
-   (free-verb m rm dp)
-   (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
-   (* a)))
+  (-> (warp1 1 b p fs ws e ol 0.0 i)
+      (free-verb m rm dp)
+      (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
+      (* a)))
+
 
 (definst wrplf
   [b 0 p 0 a 1 at 15 rl 40 lf 2000 g 1 fs 1 ws 0.1 e -1 ol 1 i 4] 
-  (->
-   (warp1 1 b p fs ws e ol 0.0 i)   
-   (lpf lf)
-   (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
-   (* a)))
+  (-> (warp1 1 b p fs ws e ol 0.0 i)
+      (lpf lf)
+      (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
+      (* a)))
+
 
 (definst wrphf
   [b 0 p 0 a 1 at 15 rl 40 hf 200 g 1 fs 1 ws 0.1 e -1 ol 1 i 4] 
-  (->
-   (warp1 1 b p fs ws e ol 0.0 i)   
-   (hpf hf)
-   (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
-   (* a)))
+  (-> (warp1 1 b p fs ws e ol 0.0 i)
+      (hpf hf)
+      (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
+      (* a)))
+
 
 (definst wrprlf
   [b 0 p 0 a 1 at 15 rl 40 lf 2000 m 1 rm 1 dp 1 g 1 fs 1 ws 0.1 e -1 ol 1 i 4] 
-  (->
-   (warp1 1 b p fs ws e ol 0.0 i)
-   (lpf lf)
-   (free-verb m rm dp)
-   (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
-   (* a)))
+  (-> (warp1 1 b p fs ws e ol 0.0 i)
+      (lpf lf)
+      (free-verb m rm dp)
+      (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
+      (* a)))
+
 
 (definst wrprlfo
   [b 0 p 0 a 1 at 15 rl 40 lf 2000 m 1 rm 1 dp 1 g 1 fs 1 ws 0.1 e -1 ol 1 i 4] 
-  (->
-   (warp1 1 b (+ 0.4 (* 0.1 (sin-osc:kr p))) fs ws e ol 0.0 i)
-   (lpf lf)
-   (free-verb m rm dp)
-   (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
-   (* a)))
+  (-> (warp1 1 b (+ 0.4 (* 0.1 (sin-osc:kr p))) fs ws e ol 0.0 i)
+      (lpf lf)
+      (free-verb m rm dp)
+      (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
+      (* a)))
+
 
 (definst tri
   [a 1 at 15 rl 40 m 1 rm 1 dp 1 g 1 f 440] 
-  (->
-   (lf-tri f)
-   (free-verb m rm dp)
-   (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
-   (* a)))
+  (-> (lf-tri f)
+      (free-verb m rm dp)
+      (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
+      (* a)))
 
-;;
+
+;; Track 1
 
 (def t1 (tg 5 0.6 2000 125 0.5))
 (def t2 (tgl 0.18))
@@ -115,7 +116,8 @@
 (c t2 :r 0.2)
 (c t2 :r 0.18 :g 0)
 
-;;
+
+;; Track 2
 
 (def wpl (wrplf s4 :p 0.83 :fs 0.4 :ws 10 :a 1.5 :lf 4000))
 (def wpr (wrpr s5 :p 0.27 :fs 0.5 :ws 9 :a 1.2))
@@ -137,7 +139,8 @@
 (c wpr :g 0)
 (c wph :g 0)
 
-;;
+
+;; Track 3
 
 (def wr1 (wrplf s0 :p 0.83 :fs 0.4 :ws 14 :a 1.5 :lf 3000))
 (def wr2 (wrprlf s1 :p 0.1 :fs 0.8 :ws 8 :a 1.1 :lf 5000))
@@ -175,7 +178,8 @@
 (c wrh :g 0)
 (c wrh :hf 100)
 
-;; 
+
+;; Track 4
 
 (def tr1 (tri :f 64 :a 0.4))
 (def tr2 (tri :f 72 :a 0.4 :at 20))
@@ -222,6 +226,5 @@
 (c sm2 :g 0)
 (c sm1 :g 0)
 
-;; 
 
 (stop)

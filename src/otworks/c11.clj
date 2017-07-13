@@ -2,40 +2,45 @@
   (:require [overtone.core :refer :all]
             [otworks.functions :refer [get-samples boot]]))
 
-(boot)
+;; Init
 
-(get-samples "~/Producing/october20th-2016/sc8/"
-             (mapv #(str "s" %) (range 5 9)))
+(boot)
+(get-samples "~/Producing/october20th-2016/sc8/" (mapv #(str "s" %) (range 5 9)))
+
+
+;; SynthDefs
 
 (definst pbuf
   [buf 0 spos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1 loop 1]
-  (->
-   (play-buf 2 buf rate 1 spos loop 2)
-   (* amp)
-   (lpf lff)
-   (hpf hff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
-   (free-verb 0.5 1 1)))
+  (-> (play-buf 2 buf rate 1 spos loop 2)
+      (* amp)
+      (lpf lff)
+      (hpf hff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
+      (free-verb 0.5 1 1)))
+
 
 (definst pbufm
   [buf 0 spos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1]
-  (->
-   (play-buf 1 buf rate 1 spos 1 2)
-   (* amp)
-   (lpf lff)
-   (hpf hff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
-   (free-verb 0.5 1 1)))
+  (-> (play-buf 1 buf rate 1 spos 1 2)
+      (* amp)
+      (lpf lff)
+      (hpf hff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
+      (free-verb 0.5 1 1)))
+
 
 (definst pgrain
   [buf 0 dur 1 cpos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 t-trig 0 gate 1 mamp 1]
-  (->
-   (t-grains 2 (impulse:ar t-trig) buf rate cpos dur 0 amp 2)
-   (lpf lff)
-   (hpf hff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
-   (* mamp)
-   (free-verb 0.5 1 1)))
+  (-> (t-grains 2 (impulse:ar t-trig) buf rate cpos dur 0 amp 2)
+      (lpf lff)
+      (hpf hff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
+      (* mamp)
+      (free-verb 0.5 1 1)))
+
+
+;; Track
 
 (def x (pbufm s6 0.0 0.45 2000 80 0.8 10 10))
 (def y (pbufm s5 0.0 0.85 2000 200 1.7 10 10))
@@ -58,5 +63,6 @@
 (ctl b :loop 0)
 (ctl x :gate 0)
 (ctl z :gate 0)
+
 
 (stop)

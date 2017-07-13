@@ -2,28 +2,33 @@
   (:require [overtone.core :refer :all]
             [otworks.functions :refer [get-samples boot]]))
 
-(boot)
+;; Init
 
-(get-samples "~/Producing/july23rd-2016/smpls/"
-             (mapv #(str "s" %) (range 1 8)))
+(boot)
+(get-samples "~/Producing/july23rd-2016/smpls/" (mapv #(str "s" %) (range 1 8)))
+
+
+;; SynthDefs
 
 (definst tri
   [buf 0 amp 1 att 15 rel 40 mix 1 room 1 damp 1 gate 1 freq 440] 
-  (->
-   (lf-tri freq)
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (lf-tri freq)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst smplr
   [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf (+ 0.4 (* 0.1 (sin-osc:kr ptr))) fscale wsize ebn olaps 0.0 interp)
-   (lpf lff)
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf (+ 0.4 (* 0.1 (sin-osc:kr ptr))) fscale wsize ebn olaps 0.0 interp)
+      (lpf lff)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
+
+;; Track
 
 (def tri1 (tri :freq 64 :amp 0.4))
 (def tri2 (tri :freq 72 :amp 0.4 :att 20))
@@ -69,5 +74,6 @@
 (ctl s2-smplr2 :fscale 0.42 :wsize 0.04)
 (ctl s2-smplr2 :gate 0)
 (ctl s2-smplr :gate 0)
+
 
 (stop)

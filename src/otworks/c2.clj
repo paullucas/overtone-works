@@ -2,28 +2,33 @@
   (:require [overtone.core :refer :all]
             [otworks.functions :refer [get-samples boot]]))
 
-(boot)
+;; Init
 
-(get-samples "~/Producing/june13th-2016/"
-             (mapv #(str "spl" %) (range 1 5)))
+(boot)
+(get-samples "~/Producing/june13th-2016/" (mapv #(str "spl" %) (range 1 5)))
+
+
+;; SynthDefs
 
 (definst wrpr
   [buf 0 ptr 0 amp 1 att 15 rel 40 mix 1 room 1 damp 1 gate 1
    rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)   
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst wrplf
   [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)   
-   (lpf lff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (lpf lff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
+
+;; Track
 
 (def wrpr1 (wrpr spl1 :ptr 0.83 :fscale 0.4 :wsize 10.0 :amp 1.5))
 (def wrplf1 (wrplf spl3 :lff 1000 :ptr 0.23 :fscale 0.8 :wsize 16.0 :amp 1.8))
@@ -49,5 +54,6 @@
 (ctl wrplf2 :gate 0)
 (ctl wrplf1 :olaps 1)
 (ctl wrplf1 :gate 0)
+
 
 (stop)

@@ -6,32 +6,35 @@
             [leipzig.live :as live]
             [leipzig.scale :as scale]))
 
+;; Init
+
 (boot)
+(get-samples "~/Producing/october26th-2016/smp/" (mapv #(str "s" %) (range 0 3)))
+(get-mono-samples "~/Producing/october26th-2016/smp/" (mapv #(str "s" %) (range 0 1)))
 
-(get-samples "~/Producing/october26th-2016/smp/"
-             (mapv #(str "s" %) (range 0 3)))
 
-(get-mono-samples "~/Producing/october26th-2016/smp/"
-                  (mapv #(str "s" %) (range 0 1)))
+;; SynthDefs
 
 (definst pgrain
   [rate 2.52 dur 10 lff 5000 hff 1000 amp 2.5 att 1 rel 1 t_trig 0.1 gate 1]
-  (->
-   (t-grains 2 (impulse:ar t_trig) s0m rate (* 0.1 (sin-osc:kr 0.2)) dur 0 amp 1)
-   (lpf lff)
-   (hpf hff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
-   (free-verb 0.6 1 1)))
+  (-> (t-grains 2 (impulse:ar t_trig) s0m rate (* 0.1 (sin-osc:kr 0.2)) dur 0 amp 1)
+      (lpf lff)
+      (hpf hff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
+      (free-verb 0.6 1 1)))
+
 
 (definst rsin
   [dens 80 rmul 4000 lff 2500 hff 100 amp 1 att 10 rel 10 rmix 0.9 gate 1]
-  (->
-   (sin-osc (* rmul (lf-noise1:kr dens)))
-   (* amp)
-   (lpf lff)
-   (hpf hff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
-   (free-verb rmix 1 1)))
+  (-> (sin-osc (* rmul (lf-noise1:kr dens)))
+      (* amp)
+      (lpf lff)
+      (hpf hff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))
+      (free-verb rmix 1 1)))
+
+
+;; Track
 
 (def x (rsin))
 (ctl x :rmix 0)
@@ -62,5 +65,6 @@
 (ctl x :lff 900)
 (ctl x :dens 150)
 (ctl x :gate 0)
+
 
 (stop)

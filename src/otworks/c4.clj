@@ -2,48 +2,53 @@
   (:require [overtone.core :refer :all]
             [otworks.functions :refer [get-samples boot]]))
 
-(boot)
+;; Init
 
-(get-samples "~/Producing/july3rd-2016/samples/"
-             (mapv #(str "smp" %) (range 1 5)))
+(boot)
+(get-samples "~/Producing/july3rd-2016/samples/" (mapv #(str "smp" %) (range 1 5)))
+
+
+;; SynthDefs
 
 (definst wrprlf
   [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
-   (lpf lff)
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (lpf lff)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst wrprlfo
   [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf (+ 0.4 (* 0.1 (sin-osc:kr ptr))) fscale wsize ebn olaps 0.0 interp)
-   (lpf lff)
-   (free-verb mix room damp)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf (+ 0.4 (* 0.1 (sin-osc:kr ptr))) fscale wsize ebn olaps 0.0 interp)
+      (lpf lff)
+      (free-verb mix room damp)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst wrplf
   [buf 0 ptr 0 amp 1 att 15 rel 40 lff 2000 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)   
-   (lpf lff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (lpf lff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
 
 (definst wrphf
   [buf 0 ptr 0 amp 1 att 15 rel 40 hff 200 mix 1 room 1 damp 1
    gate 1 rate 1 fscale 1 wsize 0.1 ebn -1 olaps 1 interp 4] 
-  (->
-   (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)   
-   (hpf hff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
-   (* amp)))
+  (-> (warp1 1 buf ptr fscale wsize ebn olaps 0.0 interp)
+      (hpf hff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action FREE))
+      (* amp)))
+
+
+;; Track
 
 (def wrplf1 (wrplf smp1 :ptr 0.83 :fscale 0.4 :wsize 14 :amp 1.5 :lff 3000))
 (def wrprlf1 (wrprlf smp2 :ptr 0.1 :fscale 0.8 :wsize 8 :amp 1.1 :lff 5000))
@@ -79,5 +84,6 @@
 (ctl wrphf1 :ptr 0.1 :fscale 0.7 :wsize 8)
 (ctl wrphf1 :gate 0)
 (ctl wrprlfo1 :gate 0)
+
 
 (stop)

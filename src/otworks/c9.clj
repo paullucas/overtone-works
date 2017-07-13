@@ -2,19 +2,24 @@
   (:require [overtone.core :refer :all]
             [otworks.functions :refer [get-samples boot]]))
 
-(boot)
+;; Init
 
-(get-samples "~/Producing/october20th-2016/sc8/"
-             (mapv #(str "s" %) (range 0 2)))
+(boot)
+(get-samples "~/Producing/october20th-2016/sc8/" (mapv #(str "s" %) (range 0 2)))
+
+
+;; SynthDefs
 
 (definst pbuf
   [buf 0 spos 0.0 rate 1 lff 2000 hff 200 amp 1 att 15 rel 40 gate 1]
-  (->
-   (play-buf 2 buf rate 1 spos 1 2)
-   (* amp)
-   (lpf lff)
-   (hpf hff)
-   (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))))
+  (-> (play-buf 2 buf rate 1 spos 1 2)
+      (* amp)
+      (lpf lff)
+      (hpf hff)
+      (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))))
+
+
+;; Track
 
 (def x (pbuf s1 (/ @sample-rate* 4) 0.4 1500 150 2 10 1))
 (def y (pbuf s1 0.0 0.5 3000 50 1 1 5))
@@ -40,5 +45,6 @@
 (ctl b :gate 0)
 (ctl c :gate 0)
 (ctl a :gate 0)
+
 
 (stop)

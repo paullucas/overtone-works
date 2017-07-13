@@ -7,6 +7,7 @@
 (boot)
 (get-samples "~/Producing/october20th-2016/sc8/" (mapv #(str "s" %) (range 0 18)))
 
+
 ;; SynthDefs
 
 (definst t1-pbuf
@@ -82,7 +83,7 @@
       (* (env-gen (asr :attack att :curve 1 :release rel) :gate gate :action 2))))
 
 
-;; t1 - Lie
+;; track 1 - Lie
 ;; https://paullucas.bandcamp.com/track/lie
 
 (def x (t1-pbuf s1 (/ @sample-rate* 4) 0.4 1500 150 2 10 1))
@@ -111,7 +112,7 @@
 (ctl a :gate 0)
 
 
-;; t2 - Breathe
+;; track 2 - Breathe
 ;; https://paullucas.bandcamp.com/track/breathe
 
 (def x (t2-pbuf s2 0 0.4 4000 100 0.8 10 10))
@@ -130,7 +131,7 @@
 (ctl z :gate 0)
 
 
-;; t3 - Forget
+;; track 3 - Forget
 ;; https://paullucas.bandcamp.com/track/forget
 
 (def x (t2-pbufm s6 0.0 0.45 2000 80 0.8 10 10))
@@ -156,7 +157,7 @@
 (ctl z :gate 0)
 
 
-;; t4 - Swell
+;; track 4 - Swell
 ;; https://paullucas.bandcamp.com/track/swell
 
 (def x (t2-pbuf s9 0.0 0.8 1000 60 0.7 10 10))
@@ -178,7 +179,7 @@
 (ctl a :gate 0)
 
 
-;; t5 - Autonomy
+;; track 5 - Autonomy
 ;; https://paullucas.bandcamp.com/track/autonomy
 
 (def a (t5-pbufm s13 0.0 1 0.7 10 20))
@@ -202,7 +203,7 @@
 (ctl b :gate 0)
 
 
-;; t6 - Bleak
+;; track 6 - Bleak
 ;; https://paullucas.bandcamp.com/track/bleak
 
 (def a (t6-pbuf s15 0.0 0.7 1.2 10 20))

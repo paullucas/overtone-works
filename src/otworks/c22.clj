@@ -2,35 +2,40 @@
   (:require [overtone.core :refer :all :rename {ctl c}]
             [otworks.functions :refer [get-samples boot]]))
 
-(boot)
+;; Init
 
-(get-samples "~/Producing/jan2nd-2017/smp/"
-             (mapv #(str "s" % "m") (range 0 9)))
+(boot)
+(get-samples "~/Producing/jan2nd-2017/smp/" (mapv #(str "s" % "m") (range 0 9)))
+
+
+;; SynthDefs
 
 (definst tgr
   [b 0 r 1 a 1 at 15 rl 40 d 5 g 1]
-  (->
-   (t-grains 2 (impulse:ar 4) b r (* 0.1 (sin-osc:kr 0.03)) d 0 1 1)
-   (free-verb 0.5 1 1)
-   (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action 2))
-   (* a)))
+  (-> (t-grains 2 (impulse:ar 4) b r (* 0.1 (sin-osc:kr 0.03)) d 0 1 1)
+      (free-verb 0.5 1 1)
+      (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action 2))
+      (* a)))
+
 
 (definst tgrf
   [b 0 r 1 lf 2000 hf 200 a 1 at 15 rl 40 d 5 g 1]
-  (->
-   (t-grains 2 (impulse:ar 4) b r (* 0.1 (sin-osc:kr 0.03)) d 0 1 1)
-   (lpf lf)
-   (hpf hf)
-   (free-verb 0.5 1 1)
-   (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action 2))
-   (* a)))
+  (-> (t-grains 2 (impulse:ar 4) b r (* 0.1 (sin-osc:kr 0.03)) d 0 1 1)
+      (lpf lf)
+      (hpf hf)
+      (free-verb 0.5 1 1)
+      (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action 2))
+      (* a)))
+
 
 (definst c1sio
   [f 440 a 1 rl 40 at 15 g 1] 
-  (->
-   (sin-osc [f (+ f 1)])
-   (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
-   (* a)))
+  (-> (sin-osc [f (+ f 1)])
+      (* (env-gen (asr :attack at :curve 1 :release rl) :gate g :action FREE))
+      (* a)))
+
+
+;; Track
 
 (def t1 (tgr s1m 0.67 1 15))
 (def t2 (tgrf s3m 800 2000 400 1 10))
@@ -59,5 +64,6 @@
 (c s2 :f 60 :a 1 :g 0)
 (c t2 :g 0)
 (c t1 :g 0)
+
 
 (stop)
