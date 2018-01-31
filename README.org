@@ -1,25 +1,26 @@
 * Overtone Works
 ** Compositions
-| File    | Released? | Name     | Album  | Notes         |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c1.clj][c1.clj]]  | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c2.clj][c2.clj]]  | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c3.clj][c3.clj]]  | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c4.clj][c4.clj]]  | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c6.clj][c6.clj]]  | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c7.clj][c7.clj]]  | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c8.clj][c8.clj]]  | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c9.clj][c9.clj]]  | Yes       | [[https://paullucas.bandcamp.com/track/lie][Lie]]      | [[https://paullucas.bandcamp.com/album/hollow][Hollow]] | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/1.scd][1.scd]] rewrite |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c10.clj][c10.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/breathe][Breathe]]  | [[https://paullucas.bandcamp.com/album/hollow][Hollow]] | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/2.scd][2.scd]] rewrite |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c11.clj][c11.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/forget][Forget]]   | [[https://paullucas.bandcamp.com/album/hollow][Hollow]] | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/3.scd][3.scd]] rewrite |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c12.clj][c12.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/swell][Swell]]    | [[https://paullucas.bandcamp.com/album/hollow][Hollow]] | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/4.scd][4.scd]] rewrite |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c13.clj][c13.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/autonomy][Autonomy]] | [[https://paullucas.bandcamp.com/album/hollow][Hollow]] | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/6.scd][6.scd]] rewrite |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c14.clj][c14.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/bleak][Bleak]]    | [[https://paullucas.bandcamp.com/album/hollow][Hollow]] | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/7.scd][7.scd]] rewrite |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c17.clj][c17.clj]] | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c18.clj][c18.clj]] | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c19.clj][c19.clj]] | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c20.clj][c20.clj]] | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c22.clj][c22.clj]] | No        |          |        |               |
-| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c23.clj][c23.clj]] | No        |          |        |               |
+| File    | Released? | Name     | Album           | Notes         |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c1.clj][c1.clj]]  | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c2.clj][c2.clj]]  | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c3.clj][c3.clj]]  | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c4.clj][c4.clj]]  | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c6.clj][c6.clj]]  | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c7.clj][c7.clj]]  | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c8.clj][c8.clj]]  | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c9.clj][c9.clj]]  | Yes       | [[https://paullucas.bandcamp.com/track/lie][Lie]]      | [[https://paullucas.bandcamp.com/album/hollow][Hollow]]          | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/1.scd][1.scd]] rewrite |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c10.clj][c10.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/breathe][Breathe]]  | [[https://paullucas.bandcamp.com/album/hollow][Hollow]]          | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/2.scd][2.scd]] rewrite |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c11.clj][c11.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/forget][Forget]]   | [[https://paullucas.bandcamp.com/album/hollow][Hollow]]          | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/3.scd][3.scd]] rewrite |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c12.clj][c12.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/swell][Swell]]    | [[https://paullucas.bandcamp.com/album/hollow][Hollow]]          | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/4.scd][4.scd]] rewrite |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c13.clj][c13.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/autonomy][Autonomy]] | [[https://paullucas.bandcamp.com/album/hollow][Hollow]]          | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/6.scd][6.scd]] rewrite |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c14.clj][c14.clj]] | Yes       | [[https://paullucas.bandcamp.com/track/bleak][Bleak]]    | [[https://paullucas.bandcamp.com/album/hollow][Hollow]]          | [[https://github.com/paullucas/supercollider-works/blob/master/synthdef/7.scd][7.scd]] rewrite |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c17.clj][c17.clj]] | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c18.clj][c18.clj]] | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c19.clj][c19.clj]] | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c20.clj][c20.clj]] | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c22.clj][c22.clj]] | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c23.clj][c23.clj]] | No        |          |                 |               |
+| [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c25.clj][c25.clj]] | Yes       | [[https://collapsedstructures.bandcamp.com/track/crawl][Crawl]]    | [[https://collapsedstructures.bandcamp.com/album/steel-and-decay][Steel and Decay]] | [[https://github.com/paullucas/hsc3-works/blob/master/works/c9.hs][c9.hs]] rewrite |
 ** Sets
 | File    | Released? | Name   | Notes          |
 | [[https://github.com/paullucas/overtone-works/blob/master/src/otworks/c5.clj][c5.clj]]  | No        |        |                |
