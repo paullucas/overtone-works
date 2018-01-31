@@ -44,7 +44,7 @@
       (* a)))
 
 
-;; Track 1
+;; 
 
 (get-samples "~/Producing/august25th-2017/prefixed/t1/" (mapv #(str "s" % "f") (range 1 5)))
 
@@ -72,11 +72,3 @@
 (c s3 :ol 1)
 (c s3 :g 0)
 (c s5 :g 0)
-
-
-;; Track 2
-
-(get-samples "~/Producing/august25th-2017/prefixed/t2/" (mapv #(str "s" % "f") (range 1 9)))
-
-
-(stop)

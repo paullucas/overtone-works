@@ -1,10 +1,11 @@
 (ns otworks.c21
-  (:require [overtone.core :refer :all :rename {ctl c}]
+  (:require [overtone.live :refer :all :rename {ctl c}]
+            ;; [overtone.core :refer :all :rename {ctl c}]
             [otworks.functions :refer [get-samples get-mono-samples boot]]))
 
 ;; Init
 
-(boot)
+;; (boot)
 (get-samples "~/Producing/october20th-2016/ot16/" (mapv #(str "s" %) (range 0 9)))
 (get-mono-samples "~/Producing/november4th-2016/chops/smpls/" (mapv #(str "s" %) (range 1 9)))
 
