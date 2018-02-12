@@ -42,67 +42,191 @@
                       (where :pitch (comp scale/lower scale/lower))
                       (where :pitch (comp scale/F scale/lydian)))))
 
-    (melody (phrase (cycle [6 8]) [(-> seventh (root 7))
-                                   (-> triad (root 1))
-                                   (-> seventh (root 3))
-                                   (-> ninth (root 2))])))
+    (defn micro [mult times chords]
+      (-> (map #(/ % mult) times)
+          cycle
+          (phrase (map #(apply root %) chords))
+          melody))
+
+    (micro 1 [6 8] [[seventh 7]
+                    [triad 1]
+                    [seventh 3]
+                    [ninth 2]]))
 
 (def s1 (pbuf s1f))
 
 (live/jam (var track))
 
-(melody (phrase (cycle [6 8]) [(-> ninth   (root 12))
-                               (-> seventh (root 7))
-                               (-> ninth   (root 14))
-                               (-> triad   (root 16))]))
-
+(micro 1 [6 8]
+       [[ninth 12]
+        [seventh 7]
+        [ninth 14]
+        [triad 16]])
 
 (do (defn melody [phrase]
       (def track (->> phrase
                       (tempo (bpm 420))
                       (where :pitch (comp scale/lower scale/lower scale/lower))
                       (where :pitch (comp scale/D scale/lydian)))))
-    (melody (phrase (cycle [2 1 2 3 2 1])
-                    [(-> ninth (root 12))
-                     (-> seventh (root 7))
-                     (-> ninth (root 14))
-                     (-> triad (root 16))])))
+    (micro 1 [2 1 2 3 2 1]
+           [[ninth 12]
+            [seventh 7]
+            [ninth 14]
+            [triad 16]]))
 
-(melody (phrase (cycle [2 1 2 3 2 1 1 1 2 1 2 3])
-                [(-> ninth (root 12))
-                 (-> seventh (root 7))
-                 (-> ninth (root 14))
-                 (-> triad (root 16))
-                 (-> ninth (root 18))
-                 (-> ninth (root 12))
-                 (-> ninth (root 7))
-                 (-> ninth (root 7))]))
+(micro 1 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 12]
+        [seventh 7]
+        [ninth 14]
+        [triad 16]
+        [ninth 18]
+        [ninth 12]
+        [ninth 7]
+        [ninth 7]])
 
-(melody (phrase (cycle [2 1 2 3 2 1 1 1 2 1 2 3])
-                [(-> ninth (root 12))
-                 (-> seventh (root 7))
-                 (-> ninth (root 14))
-                 (-> ninth (root 7))
-                 (-> triad (root 16))
-                 (-> ninth (root 7))
-                 (-> ninth (root 18))
-                 (-> ninth (root 7))
-                 (-> ninth (root 12))
-                 (-> ninth (root 7))
-                 (-> ninth (root 7))]))
+(micro 1 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 12]
+        [seventh 7]
+        [ninth 14]
+        [ninth 7]
+        [triad 16]
+        [ninth 7]
+        [ninth 18]
+        [ninth 7]
+        [ninth 12]
+        [ninth 7]
+        [ninth 7]])
 
-(melody (phrase (cycle [2 1 2 3 2 1 1 1 2 1 2 3])
-                [(-> ninth (root 12))
-                 (-> ninth (root 14))
-                 (-> ninth (root 9))
-                 (-> triad (root 16))
-                 (-> ninth (root 9))
-                 (-> ninth (root 21))
-                 (-> ninth (root 21))
-                 (-> ninth (root 21))
-                 (-> ninth (root 12))
-                 (-> ninth (root 9))
-                 (-> ninth (root 9))]))
+(micro 1 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 12]
+        [ninth 14]
+        [ninth 9]
+        [triad 16]
+        [ninth 9]
+        [ninth 21]
+        [ninth 21]
+        [ninth 21]
+        [ninth 12]
+        [ninth 9]
+        [ninth 9]])
+
+(micro 1 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 14]
+        [ninth 18]
+        [ninth 10]
+        [triad 18]
+        [ninth 10]
+        [ninth 25]
+        [ninth 25]
+        [ninth 25]
+        [triad 25]
+        [ninth 12]
+        [ninth 8]
+        [ninth 8]])
+
+(micro 5.75 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 14]
+        [triad 8]
+        [triad 18]
+        [ninth 4]
+        [ninth 21]
+        [triad 25]
+        [ninth 5]
+        [triad 21]
+        [ninth 12]
+        [triad 5]
+        [ninth 8]])
+
+(micro 5.2 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 11]
+        [triad 5]
+        [triad 15]
+        [ninth 1]
+        [ninth 18]
+        [triad 22]
+        [ninth 2]
+        [triad 18]
+        [ninth 9]
+        [triad 2]
+        [ninth 5]])
+
+(micro 6.25 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 9]
+        [triad 3]
+        [triad 13]
+        [ninth 1]
+        [ninth 15]
+        [triad 19]
+        [ninth 2]
+        [triad 15]
+        [ninth 6]
+        [triad 2]
+        [ninth 5]])
+
+(micro 4 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 6]
+        [triad 2]
+        [triad 10]
+        [ninth 1]
+        [ninth 12]
+        [triad 16]
+        [ninth 2]
+        [triad 12]
+        [ninth 5]
+        [triad 2]
+        [ninth 4]])
+
+(micro 4 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 7]
+        [triad 2]
+        [triad 11]
+        [ninth 1]
+        [ninth 13]
+        [triad 16]
+        [ninth 2]
+        [triad 13]
+        [ninth 5]
+        [triad 2]
+        [ninth 4]])
+
+(micro 4 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 6]
+        [triad 2]
+        [triad 10]
+        [ninth 1]
+        [ninth 12]
+        [triad 16]
+        [ninth 2]
+        [triad 12]
+        [ninth 5]
+        [triad 2]
+        [ninth 4]])
+
+(micro 4.3 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 7]
+        [triad 2]
+        [triad 11]
+        [ninth 1]
+        [ninth 14]
+        [triad 20]
+        [ninth 2]
+        [triad 13]
+        [ninth 5]
+        [triad 2]
+        [ninth 4]])
+
+(micro 2.3 [2 1 2 3 2 1 1 1 2 1 2 3]
+       [[ninth 6]
+        [triad 2]
+        [triad 10]
+        [ninth 1]
+        [ninth 12]
+        [triad 16]
+        [ninth 2]
+        [triad 12]
+        [ninth 5]
+        [triad 2]
+        [ninth 4]])
 
 (def track nil)
 (c s1 :g 0)
